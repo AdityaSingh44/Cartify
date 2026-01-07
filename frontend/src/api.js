@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'https://cartify-backend-w2rf.onrender.com/' })
+const API = axios.create({ baseURL: (import.meta.env.VITE_API_URL || 'https://cartify-backend-w2rf.onrender.com').replace(/\/$/, '') + '/api' })
 
 API.interceptors.request.use(config => {
     const token = localStorage.getItem('token')
